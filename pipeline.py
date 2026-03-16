@@ -288,7 +288,6 @@ Examples:
     parser.add_argument("--alert-threshold", type=int, default=60)
     args = parser.parse_args()
 
-    # Pick notifier
     if args.slack_webhook or os.environ.get("SLACK_WEBHOOK_URL"):
         notifier = {"type": "slack",
                     "webhook_url": args.slack_webhook or os.environ.get("SLACK_WEBHOOK_URL")}
