@@ -1,4 +1,4 @@
-# 📊 Attack Analysis Report
+# Attack Analysis Report
 ## Cloud Honeypot Detection Lab — 72-Hour Observation Window
 
 **Report Date:** January 15–18, 2024  
@@ -97,7 +97,7 @@ Among the 89 successful logins, attackers executed the following command categor
 
 ## 4. Notable Attacker Profiles
 
-### 🔴 Attacker A — IP: 218.92.0.195 (China, AS4134)
+### Attacker A — IP: 218.92.0.195 (China, AS4134)
 **Severity: CRITICAL**
 
 Most sophisticated attacker observed during the window. After successfully logging in with credential `admin:P@ssw0rd`, this attacker:
@@ -113,7 +113,7 @@ Most sophisticated attacker observed during the window. After successfully loggi
 
 ---
 
-### 🔴 Attacker B — IP: 5.188.206.26 (Russia, AS57523)
+### Attacker B — IP: 5.188.206.26 (Russia, AS57523)
 **Severity: CRITICAL**
 
 Logged in with `root:toor` and immediately installed **two persistence mechanisms**:
@@ -126,7 +126,7 @@ Consistent with a **ransomware pre-positioning** or **botnet installation** patt
 
 ---
 
-### 🟡 Attacker C — IP: 45.227.255.190 (Brazil, AS267613)
+### Attacker C — IP: 45.227.255.190 (Brazil, AS267613)
 **Severity: HIGH**
 
 Immediately after login, checked CPU resources with `nproc` (CPU count), then deployed the **XMRig Monero cryptominer**:
@@ -142,7 +142,7 @@ This is a classic **cloud resource hijacking** pattern. On a real EC2 instance, 
 
 ---
 
-### 🟡 Attacker D — IP: 80.94.95.130 (Netherlands, AS208091)
+### Attacker D — IP: 80.94.95.130 (Netherlands, AS208091)
 **Severity: HIGH**
 
 Specifically targeted **AWS cloud credentials**. Command sequence:
