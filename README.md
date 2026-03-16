@@ -1,10 +1,10 @@
-# 🍯 Cloud Honeypot Detection Lab
+# Cloud Honeypot Detection Lab
 
 > A simulated cloud-based honeypot infrastructure for detecting, logging, and analyzing real-world attacker behavior — built to mirror production AWS deployments without requiring live cloud access.
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 This lab simulates a **cloud honeypot environment** that mimics an exposed EC2 instance running SSH and HTTP services. It captures attacker interactions, generates GuardDuty-style threat findings, and maps observed behaviors to the **MITRE ATT&CK framework**.
 
@@ -12,7 +12,7 @@ The entire lab is designed to be **runnable locally** using Docker and Python �
 
 ---
 
-## 🎯 Objectives
+## Objectives
 
 | Goal | Description |
 |------|-------------|
@@ -24,7 +24,7 @@ The entire lab is designed to be **runnable locally** using Docker and Python �
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 Internet
@@ -51,7 +51,7 @@ Internet
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 Cloud-Honeypot-Detection-Lab/
@@ -82,7 +82,7 @@ Cloud-Honeypot-Detection-Lab/
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -112,7 +112,7 @@ python3 scripts/auto_ip_blocker.py --ip-list logs/attacker_ips.txt --dry-run
 
 ---
 
-## 📊 Key Findings Summary
+## Key Findings Summary
 
 During the simulated 72-hour observation window:
 
@@ -129,7 +129,7 @@ During the simulated 72-hour observation window:
 
 ---
 
-## 🗺️ MITRE ATT&CK Coverage
+## MITRE ATT&CK Coverage
 
 | Tactic | Technique | Count |
 |--------|-----------|-------|
@@ -142,7 +142,7 @@ During the simulated 72-hour observation window:
 
 ---
 
-## 🛡️ Defensive Actions Taken
+## Defensive Actions Taken
 
 1. **IP Blocking** — 347 IPs added to simulated Network ACL deny list
 2. **Credential Blacklist** — Top 50 attempted credential pairs documented
@@ -151,13 +151,13 @@ During the simulated 72-hour observation window:
 
 ---
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 > This project is **for educational and research purposes only**. All logs, IP addresses, and findings are **simulated** to reflect realistic attack patterns observed in real honeypot deployments. Do not use the blocking scripts against real infrastructure without proper authorization.
 
 ---
 
-## 📚 References
+## References
 
 - [Cowrie Honeypot Documentation](https://cowrie.readthedocs.io/)
 - [AWS GuardDuty Finding Types](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-active.html)
