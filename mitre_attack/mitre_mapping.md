@@ -27,7 +27,7 @@
 
 ## Detailed TTP Mapping
 
-### 🔵 RECONNAISSANCE
+### RECONNAISSANCE
 
 #### T1595 — Active Scanning
 - **Sub-technique:** T1595.001 (Scanning IP Blocks), T1595.002 (Vulnerability Scanning)
@@ -41,7 +41,7 @@
 
 ---
 
-### 🟡 INITIAL ACCESS
+### INITIAL ACCESS
 
 #### T1110 — Brute Force
 - **Sub-techniques:** T1110.001 (Password Guessing), T1110.003 (Password Spraying)
@@ -64,7 +64,7 @@
 
 ---
 
-### 🟠 EXECUTION
+### EXECUTION
 
 #### T1059.004 — Command and Scripting Interpreter: Unix Shell
 - **Observed behavior:** Attackers used `/bin/sh` and `/bin/bash` to execute downloaded scripts
@@ -102,7 +102,7 @@
 
 ---
 
-### 🔴 PERSISTENCE
+### PERSISTENCE
 
 #### T1053.003 — Scheduled Task/Job: Cron
 - **Observed behavior:** Cron persistence entry added to `/etc/crontab`:
@@ -125,7 +125,7 @@
 
 ---
 
-### 🟣 DEFENSE EVASION
+### DEFENSE EVASION
 
 #### T1562.004 — Impair Defenses: Disable or Modify System Firewall
 - **Observed behavior:** iptables rules flushed to allow outbound C2 connections:
@@ -140,7 +140,7 @@
 
 ---
 
-### 🔑 CREDENTIAL ACCESS
+### CREDENTIAL ACCESS
 
 #### T1110.001 — Brute Force: Password Guessing
 - *(See Initial Access T1110 above)*
@@ -165,7 +165,7 @@
 
 ---
 
-### 🔍 DISCOVERY
+### DISCOVERY
 
 #### T1082 — System Information Discovery
 - **Commands:** `uname -a`, `cat /etc/issue`, `cat /proc/cpuinfo | grep processor | wc -l`
@@ -194,7 +194,7 @@
 
 ---
 
-### ↔️ LATERAL MOVEMENT
+### LATERAL MOVEMENT
 
 #### T1021.004 — Remote Services: SSH
 - **Observed behavior:** After initial compromise, attacker checked network topology; in a real environment, this precedes SSH connections to other internal hosts
@@ -216,7 +216,7 @@
 
 ---
 
-### 💥 IMPACT
+### IMPACT
 
 #### T1496 — Resource Hijacking
 - **Observed behavior:** XMRig Monero cryptominer deployed on EC2 instance
