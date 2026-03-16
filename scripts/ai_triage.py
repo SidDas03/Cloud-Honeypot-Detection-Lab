@@ -18,10 +18,6 @@ import sys
 import argparse
 from datetime import datetime
 
-
-# ─────────────────────────────────────────────
-# ANSI Colors
-# ─────────────────────────────────────────────
 class C:
     RED    = "\033[91m"
     GREEN  = "\033[92m"
@@ -30,11 +26,7 @@ class C:
     CYAN   = "\033[96m"
     BOLD   = "\033[1m"
     RESET  = "\033[0m"
-
-
-# ─────────────────────────────────────────────
-# Mock verdicts — used when no API key provided
-# ─────────────────────────────────────────────
+    
 MOCK_VERDICTS = {
     "185.220.101.47": {
         "intent": "botnet_recruitment",
@@ -98,10 +90,6 @@ MOCK_VERDICTS = {
     }
 }
 
-
-# ─────────────────────────────────────────────
-# Session Builder
-# ─────────────────────────────────────────────
 def build_session(events: list, target_ip: str) -> dict:
     """Group all Cowrie events for a specific IP into a session summary."""
     session = {
@@ -154,10 +142,6 @@ def build_session(events: list, target_ip: str) -> dict:
 
     return session
 
-
-# ─────────────────────────────────────────────
-# Rule-based fallback verdict
-# ─────────────────────────────────────────────
 def rule_based_verdict(session: dict) -> dict:
     """Generate a verdict using rules when AI is unavailable."""
     cmds = session.get("commands_executed", [])
@@ -210,10 +194,6 @@ def rule_based_verdict(session: dict) -> dict:
         "_analyzed_at": datetime.utcnow().isoformat() + "Z"
     }
 
-
-# ─────────────────────────────────────────────
-# AI Triage — main function
-# ─────────────────────────────────────────────
 def ai_triage_session(session: dict, api_key: str = None) -> dict:
     """
     Send session to Claude API for AI triage.
@@ -282,10 +262,6 @@ Cap at 100. Return JSON only."""
         print(f"{C.YELLOW}[WARN] API failed ({e}), using rule-based verdict{C.RESET}")
         return rule_based_verdict(session)
 
-
-# ─────────────────────────────────────────────
-# Triage all IPs from log file
-# ─────────────────────────────────────────────
 def triage_all(log_file: str, api_key: str = None) -> dict:
     """Triage all IPs that had successful logins."""
 
@@ -317,10 +293,6 @@ def triage_all(log_file: str, api_key: str = None) -> dict:
 
     return results
 
-
-# ─────────────────────────────────────────────
-# Print a verdict
-# ─────────────────────────────────────────────
 def print_verdict(ip: str, result: dict):
     v = result["verdict"]
     s = result["session"]
@@ -347,11 +319,7 @@ def print_verdict(ip: str, result: dict):
           f"{s.get('login_successes')} successes / "
           f"{len(s.get('commands_executed', []))} commands / "
           f"{len(s.get('files_downloaded', []))} downloads")
-
-
-# ─────────────────────────────────────────────
-# CLI
-# ─────────────────────────────────────────────
+    
 def main():
     parser = argparse.ArgumentParser(
         description="AI-powered honeypot threat triage",
