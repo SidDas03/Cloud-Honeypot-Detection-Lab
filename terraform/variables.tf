@@ -1,4 +1,4 @@
-# variables.tf — Configurable settings for the honeypot deployment
+# variables.tf
 
 variable "aws_region" {
   description = "AWS region to deploy the honeypot"
