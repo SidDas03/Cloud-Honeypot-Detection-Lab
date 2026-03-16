@@ -15,10 +15,6 @@ import os
 from collections import defaultdict, Counter
 from datetime import datetime
 
-
-# ─────────────────────────────────────────────
-# ANSI Colors for terminal output
-# ─────────────────────────────────────────────
 class Colors:
     RED     = "\033[91m"
     GREEN   = "\033[92m"
@@ -34,10 +30,6 @@ class Colors:
 def cprint(msg, color=Colors.WHITE):
     print(f"{color}{msg}{Colors.RESET}")
 
-
-# ─────────────────────────────────────────────
-# IP Extractor Core
-# ─────────────────────────────────────────────
 class IPExtractor:
     def __init__(self, log_file: str):
         self.log_file = log_file
@@ -279,10 +271,6 @@ class IPExtractor:
             json.dump(output, f, indent=2)
         cprint(f"[+] Saved JSON to {output_file}", Colors.GREEN)
 
-
-# ─────────────────────────────────────────────
-# CLI Entry Point
-# ─────────────────────────────────────────────
 def main():
     parser = argparse.ArgumentParser(
         description="Extract and analyze attacker IPs from Cowrie honeypot logs",
