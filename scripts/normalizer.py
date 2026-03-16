@@ -18,7 +18,6 @@ import re
 import sys
 from datetime import datetime
 
-
 class C:
     GREEN  = "\033[92m"
     YELLOW = "\033[93m"
@@ -27,10 +26,6 @@ class C:
     BOLD   = "\033[1m"
     RESET  = "\033[0m"
 
-
-# ─────────────────────────────────────────────
-# Unified Event Schema
-# ─────────────────────────────────────────────
 def make_event(src_ip, event_type, detail, timestamp,
                username=None, severity=None, source_system=None):
     """Creates a normalized event in the unified schema."""
@@ -45,10 +40,6 @@ def make_event(src_ip, event_type, detail, timestamp,
         "normalized_at": datetime.utcnow().isoformat() + "Z"
     }
 
-
-# ─────────────────────────────────────────────
-# Cowrie Normalizer
-# ─────────────────────────────────────────────
 def normalize_cowrie(raw_events: list) -> list:
     """Normalize Cowrie SSH honeypot JSON logs."""
     normalized = []
@@ -91,10 +82,6 @@ def normalize_cowrie(raw_events: list) -> list:
 
     return normalized
 
-
-# ─────────────────────────────────────────────
-# GuardDuty Normalizer
-# ─────────────────────────────────────────────
 def normalize_guardduty(raw: dict) -> list:
     """Normalize AWS GuardDuty findings JSON."""
     normalized = []
@@ -136,10 +123,6 @@ def normalize_guardduty(raw: dict) -> list:
 
     return normalized
 
-
-# ─────────────────────────────────────────────
-# Syslog auth.log Normalizer
-# ─────────────────────────────────────────────
 def normalize_syslog(lines: list) -> list:
     """
     Normalize Linux /var/log/auth.log lines.
@@ -192,10 +175,6 @@ def normalize_syslog(lines: list) -> list:
 
     return normalized
 
-
-# ─────────────────────────────────────────────
-# Auto-detect source type
-# ─────────────────────────────────────────────
 def detect_source(filepath: str) -> str:
     """Try to auto-detect log source from file content."""
     try:
@@ -211,10 +190,6 @@ def detect_source(filepath: str) -> str:
         pass
     return "unknown"
 
-
-# ─────────────────────────────────────────────
-# Main normalize function
-# ─────────────────────────────────────────────
 def normalize(filepath: str, source: str = "auto") -> list:
     """Normalize a log file. Returns list of unified events."""
 
@@ -249,10 +224,6 @@ def normalize(filepath: str, source: str = "auto") -> list:
     print(f"{C.GREEN}[+] Normalized {len(events)} events from {source}{C.RESET}")
     return events
 
-
-# ─────────────────────────────────────────────
-# Stats summary
-# ─────────────────────────────────────────────
 def print_stats(events: list):
     from collections import Counter
     types   = Counter(e["event_type"] for e in events)
@@ -279,10 +250,6 @@ def print_stats(events: list):
     for ip, count in ips.most_common(5):
         print(f"    {ip:<22}: {count} events")
 
-
-# ─────────────────────────────────────────────
-# CLI
-# ─────────────────────────────────────────────
 def main():
     parser = argparse.ArgumentParser(
         description="Normalize honeypot logs from multiple sources",
