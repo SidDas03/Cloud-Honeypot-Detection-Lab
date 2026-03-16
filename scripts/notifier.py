@@ -26,7 +26,6 @@ try:
 except ImportError:
     REQUESTS_AVAILABLE = False
 
-
 class C:
     RED    = "\033[91m"
     GREEN  = "\033[92m"
@@ -35,10 +34,6 @@ class C:
     BOLD   = "\033[1m"
     RESET  = "\033[0m"
 
-
-# ─────────────────────────────────────────────
-# Slack Notifier
-# ─────────────────────────────────────────────
 class SlackNotifier:
     def __init__(self, webhook_url: str):
         self.webhook_url = webhook_url
@@ -138,10 +133,6 @@ class SlackNotifier:
         except Exception:
             return False
 
-
-# ─────────────────────────────────────────────
-# Email Notifier
-# ─────────────────────────────────────────────
 class EmailNotifier:
     def __init__(self, sender: str, password: str, recipient: str,
                  smtp_server: str = "smtp.gmail.com", smtp_port: int = 587):
@@ -221,10 +212,6 @@ Automated Alert System
             print(f"{C.RED}[ERROR] Email send failed: {e}{C.RESET}")
             return False
 
-
-# ─────────────────────────────────────────────
-# Console Notifier (fallback / always works)
-# ─────────────────────────────────────────────
 class ConsoleNotifier:
     def send_alert(self, ip: str, verdict: dict, session: dict) -> bool:
         score = verdict.get("risk_score", 0)
@@ -235,10 +222,6 @@ class ConsoleNotifier:
         print(f"{col}{'━' * 55}{C.RESET}")
         return True
 
-
-# ─────────────────────────────────────────────
-# Notifier Factory
-# ─────────────────────────────────────────────
 def build_notifier(config: dict):
     """
     Build the right notifier from config dict.
@@ -269,10 +252,6 @@ def build_notifier(config: dict):
     else:
         return ConsoleNotifier()
 
-
-# ─────────────────────────────────────────────
-# Standalone test
-# ─────────────────────────────────────────────
 def _test_notification(notifier_type: str, **kwargs):
     """Send a test alert using mock data."""
     mock_verdict = {
@@ -307,10 +286,6 @@ def _test_notification(notifier_type: str, **kwargs):
     else:
         print(f"{C.RED}[-] Test alert failed.{C.RESET}")
 
-
-# ─────────────────────────────────────────────
-# CLI
-# ─────────────────────────────────────────────
 def main():
     parser = argparse.ArgumentParser(description="Honeypot alert notifier")
     parser.add_argument("--test-slack", action="store_true")
