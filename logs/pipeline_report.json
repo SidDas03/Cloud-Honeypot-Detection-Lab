@@ -1,0 +1,61 @@
+{
+  "started_at": "2026-03-16T15:50:32.646926Z",
+  "finished_at": "2026-03-16T15:50:34.017211Z",
+  "steps_completed": [
+    "normalize",
+    "extract_ips",
+    "threat_analysis",
+    "ai_triage",
+    "alert_and_block"
+  ],
+  "normalized_events": 82,
+  "unique_ips": 12,
+  "successful_logins": 6,
+  "triage_results": {
+    "185.220.101.47": {
+      "risk_score": 85,
+      "intent": "botnet_recruitment",
+      "skill": "intermediate",
+      "response": "Block IP at perimeter firewall. Scan internal network for Mirai C2 beacons on ports 23 and 2323. Check /tmp for suspicious ELF binaries.",
+      "source": "mock_verdict"
+    },
+    "218.92.0.195": {
+      "risk_score": 97,
+      "intent": "espionage_or_ransomware_staging",
+      "skill": "advanced",
+      "response": "CRITICAL \u2014 Isolate instance immediately. Rotate all credentials. Check CloudTrail for API calls using the instance IAM role. Preserve memory dump for forensics.",
+      "source": "mock_verdict"
+    },
+    "45.227.255.190": {
+      "risk_score": 74,
+      "intent": "cryptomining",
+      "skill": "low_intermediate",
+      "response": "Block IP. Kill xmrig process. Check CPU billing spike. Search /tmp for miner binaries. Add pool.minexmr.com to DNS blocklist.",
+      "source": "mock_verdict"
+    },
+    "5.188.206.26": {
+      "risk_score": 92,
+      "intent": "persistent_access_establishment",
+      "skill": "intermediate",
+      "response": "Block IP. Remove backdoor_user account. Audit /etc/crontab and all cron directories. Treat as full compromise and rotate credentials.",
+      "source": "mock_verdict"
+    },
+    "80.94.95.130": {
+      "risk_score": 95,
+      "intent": "cloud_credential_theft",
+      "skill": "advanced",
+      "response": "CRITICAL \u2014 Rotate all IAM credentials immediately. Enable IMDSv2. Check CloudTrail for API calls with the instance IAM role in the last 24 hours.",
+      "source": "mock_verdict"
+    },
+    "91.92.251.103": {
+      "risk_score": 71,
+      "intent": "botnet_recruitment",
+      "skill": "intermediate",
+      "response": "Block IP and C2 host 45.155.205.233. Check for outbound connections to known Mirai C2 infrastructure.",
+      "source": "mock_verdict"
+    }
+  },
+  "alerts_sent": 6,
+  "ips_blocked": 6,
+  "errors": []
+}

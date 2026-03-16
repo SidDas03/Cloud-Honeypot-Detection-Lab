@@ -2,6 +2,10 @@
 
 > A simulated cloud-based honeypot infrastructure for detecting, logging, and analyzing real-world attacker behavior — built to mirror production AWS deployments without requiring live cloud access.
 
+![Architecture](architecture/architecture-diagram.png)
+
+---
+
 ## 📌 Project Overview
 
 This lab simulates a **cloud honeypot environment** that mimics an exposed EC2 instance running SSH and HTTP services. It captures attacker interactions, generates GuardDuty-style threat findings, and maps observed behaviors to the **MITRE ATT&CK framework**.

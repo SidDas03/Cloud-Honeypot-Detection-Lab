@@ -1,0 +1,333 @@
+{
+  "findings": [
+    {
+      "accountId": "123456789012",
+      "arn": "arn:aws:guardduty:us-east-1:123456789012:detector/abc123def456/finding/finding001",
+      "createdAt": "2024-01-15T02:15:00Z",
+      "description": "185.220.101.47 is performing SSH brute force attacks against i-0a1b2c3d4e5f67890. 247 login attempts were made in the last 10 minutes.",
+      "id": "finding001",
+      "region": "us-east-1",
+      "severity": 8.0,
+      "title": "Brute Force Attack: 247 SSH login attempts in 10 minutes",
+      "type": "UnauthorizedAccess:EC2/SSHBruteForce",
+      "updatedAt": "2024-01-15T02:25:00Z",
+      "service": {
+        "action": {
+          "actionType": "NETWORK_CONNECTION",
+          "networkConnectionAction": {
+            "blocked": false,
+            "connectionDirection": "INBOUND",
+            "localPortDetails": {"port": 22, "portName": "SSH"},
+            "protocol": "TCP",
+            "remoteIpDetails": {
+              "city": {"cityName": "Frankfurt"},
+              "country": {"countryCode": "DE", "countryName": "Germany"},
+              "ipAddressV4": "185.220.101.47",
+              "organization": {"asn": "60729", "asnOrg": "AS60729 Tor Exit Node", "isp": "Tor Project"},
+              "geoLocation": {"lat": 50.1155, "lon": 8.6842}
+            },
+            "remotePortDetails": {"port": 54231, "portName": "Unknown"}
+          }
+        },
+        "count": 1,
+        "detectorId": "abc123def456",
+        "eventFirstSeen": "2024-01-15T02:14:33Z",
+        "eventLastSeen": "2024-01-15T02:14:38Z",
+        "resourceRole": "TARGET",
+        "serviceName": "guardduty"
+      },
+      "resource": {
+        "instanceDetails": {
+          "imageId": "ami-0c55b159cbfafe1f0",
+          "instanceId": "i-0a1b2c3d4e5f67890",
+          "instanceState": "running",
+          "instanceType": "t2.micro",
+          "launchTime": "2024-01-14T10:00:00Z",
+          "networkInterfaces": [{
+            "publicIp": "54.87.123.201",
+            "publicDnsName": "ec2-54-87-123-201.compute-1.amazonaws.com",
+            "privateIpAddress": "10.0.1.45"
+          }],
+          "tags": [{"key": "Name", "value": "Honeypot-01"}, {"key": "Environment", "value": "Honeypot"}]
+        },
+        "resourceType": "Instance"
+      },
+      "mitre_attack": {
+        "tactic": "Initial Access",
+        "technique": "T1110.001",
+        "technique_name": "Brute Force: Password Guessing"
+      }
+    },
+    {
+      "accountId": "123456789012",
+      "arn": "arn:aws:guardduty:us-east-1:123456789012:detector/abc123def456/finding/finding002",
+      "createdAt": "2024-01-15T06:45:00Z",
+      "description": "5.188.206.26 logged into EC2 instance i-0a1b2c3d4e5f67890 and created a new user account 'backdoor_user' and added a persistence crontab entry. This behavior is consistent with post-exploitation activity.",
+      "id": "finding002",
+      "region": "us-east-1",
+      "severity": 9.0,
+      "title": "Persistence Mechanism Installed: Backdoor user created and cron persistence added",
+      "type": "UnauthorizedAccess:EC2/TorIPCaller",
+      "updatedAt": "2024-01-15T06:50:00Z",
+      "service": {
+        "action": {
+          "actionType": "NETWORK_CONNECTION",
+          "networkConnectionAction": {
+            "blocked": false,
+            "connectionDirection": "INBOUND",
+            "localPortDetails": {"port": 22, "portName": "SSH"},
+            "protocol": "TCP",
+            "remoteIpDetails": {
+              "city": {"cityName": "Moscow"},
+              "country": {"countryCode": "RU", "countryName": "Russia"},
+              "ipAddressV4": "5.188.206.26",
+              "organization": {"asn": "57523", "asnOrg": "AS57523 Chang Way Technologies", "isp": "Chang Way Technologies"},
+              "geoLocation": {"lat": 55.7558, "lon": 37.6173}
+            }
+          }
+        },
+        "count": 1,
+        "eventFirstSeen": "2024-01-15T06:44:09Z",
+        "eventLastSeen": "2024-01-15T06:44:14Z"
+      },
+      "resource": {
+        "instanceDetails": {
+          "instanceId": "i-0a1b2c3d4e5f67890",
+          "instanceType": "t2.micro",
+          "networkInterfaces": [{"publicIp": "54.87.123.201", "privateIpAddress": "10.0.1.45"}]
+        },
+        "resourceType": "Instance"
+      },
+      "mitre_attack": {
+        "tactic": "Persistence",
+        "technique": "T1136.001",
+        "technique_name": "Create Account: Local Account"
+      }
+    },
+    {
+      "accountId": "123456789012",
+      "arn": "arn:aws:guardduty:us-east-1:123456789012:detector/abc123def456/finding/finding003",
+      "createdAt": "2024-01-15T08:56:00Z",
+      "description": "EC2 instance i-0a1b2c3d4e5f67890 is querying the instance metadata service (IMDS) to retrieve IAM credentials. The request originated from a session initiated by IP 80.94.95.130, which is associated with threat actor activity.",
+      "id": "finding003",
+      "region": "us-east-1",
+      "severity": 9.5,
+      "title": "Credential Access: IAM credentials retrieved from EC2 instance metadata",
+      "type": "UnauthorizedAccess:EC2/MetadataIMDSv1Used",
+      "updatedAt": "2024-01-15T09:00:00Z",
+      "service": {
+        "action": {
+          "actionType": "AWS_API_CALL",
+          "awsApiCallAction": {
+            "api": "GetInstanceProfile",
+            "callerType": "Remote IP",
+            "remoteIpDetails": {
+              "country": {"countryCode": "NL", "countryName": "Netherlands"},
+              "ipAddressV4": "80.94.95.130",
+              "organization": {"asn": "208091", "asnOrg": "AS208091 Hetzner Online", "isp": "Hetzner Online GmbH"}
+            },
+            "serviceName": "ec2.amazonaws.com"
+          }
+        },
+        "count": 1,
+        "eventFirstSeen": "2024-01-15T08:55:33Z",
+        "eventLastSeen": "2024-01-15T08:55:37Z"
+      },
+      "resource": {
+        "instanceDetails": {
+          "instanceId": "i-0a1b2c3d4e5f67890",
+          "instanceType": "t2.micro"
+        },
+        "resourceType": "Instance"
+      },
+      "mitre_attack": {
+        "tactic": "Credential Access",
+        "technique": "T1552.005",
+        "technique_name": "Unsecured Credentials: Cloud Instance Metadata API"
+      }
+    },
+    {
+      "accountId": "123456789012",
+      "arn": "arn:aws:guardduty:us-east-1:123456789012:detector/abc123def456/finding/finding004",
+      "createdAt": "2024-01-15T11:30:00Z",
+      "description": "218.92.0.195 established a reverse shell connection from EC2 instance i-0a1b2c3d4e5f67890 to an external IP. A Python subprocess was used to spawn an interactive shell connecting back to the attacker's machine on port 4444.",
+      "id": "finding004",
+      "region": "us-east-1",
+      "severity": 9.8,
+      "title": "CRITICAL: Reverse Shell Established — Command and Control Active",
+      "type": "Backdoor:EC2/C&CActivity.B",
+      "updatedAt": "2024-01-15T11:35:00Z",
+      "service": {
+        "action": {
+          "actionType": "NETWORK_CONNECTION",
+          "networkConnectionAction": {
+            "blocked": false,
+            "connectionDirection": "OUTBOUND",
+            "localPortDetails": {"port": 45721, "portName": "Unknown"},
+            "protocol": "TCP",
+            "remoteIpDetails": {
+              "city": {"cityName": "Shanghai"},
+              "country": {"countryCode": "CN", "countryName": "China"},
+              "ipAddressV4": "218.92.0.195",
+              "organization": {"asn": "4134", "asnOrg": "AS4134 CHINANET-BACKBONE", "isp": "China Telecom"},
+              "geoLocation": {"lat": 31.2222, "lon": 121.4581}
+            },
+            "remotePortDetails": {"port": 4444, "portName": "Metasploit"}
+          }
+        },
+        "count": 1,
+        "eventFirstSeen": "2024-01-15T11:29:05Z",
+        "eventLastSeen": "2024-01-15T11:29:08Z"
+      },
+      "resource": {
+        "instanceDetails": {
+          "instanceId": "i-0a1b2c3d4e5f67890",
+          "instanceType": "t2.micro"
+        },
+        "resourceType": "Instance"
+      },
+      "mitre_attack": {
+        "tactic": "Command and Control",
+        "technique": "T1059.006",
+        "technique_name": "Command and Scripting Interpreter: Python"
+      }
+    },
+    {
+      "accountId": "123456789012",
+      "arn": "arn:aws:guardduty:us-east-1:123456789012:detector/abc123def456/finding/finding005",
+      "createdAt": "2024-01-15T15:18:00Z",
+      "description": "EC2 instance i-0a1b2c3d4e5f67890 has been observed downloading and executing a cryptocurrency miner (XMRig). The binary connects to pool.minexmr.com:443, a known Monero mining pool. CPU usage has spiked to 99%.",
+      "id": "finding005",
+      "region": "us-east-1",
+      "severity": 8.5,
+      "title": "CryptoCurrency Mining Activity Detected on EC2 Instance",
+      "type": "CryptoCurrency:EC2/BitcoinTool.B",
+      "updatedAt": "2024-01-15T15:30:00Z",
+      "service": {
+        "action": {
+          "actionType": "NETWORK_CONNECTION",
+          "networkConnectionAction": {
+            "blocked": false,
+            "connectionDirection": "OUTBOUND",
+            "remoteIpDetails": {
+              "country": {"countryCode": "BR", "countryName": "Brazil"},
+              "ipAddressV4": "45.227.255.190",
+              "organization": {"asn": "267613", "asnOrg": "AS267613 XMR Mining Operations", "isp": "HostUS Solutions"}
+            },
+            "remotePortDetails": {"port": 443, "portName": "HTTPS"}
+          }
+        },
+        "count": 1,
+        "eventFirstSeen": "2024-01-15T15:17:22Z",
+        "eventLastSeen": "2024-01-15T15:17:27Z"
+      },
+      "resource": {
+        "instanceDetails": {
+          "instanceId": "i-0a1b2c3d4e5f67890",
+          "instanceType": "t2.micro"
+        },
+        "resourceType": "Instance"
+      },
+      "mitre_attack": {
+        "tactic": "Impact",
+        "technique": "T1496",
+        "technique_name": "Resource Hijacking"
+      }
+    },
+    {
+      "accountId": "123456789012",
+      "arn": "arn:aws:guardduty:us-east-1:123456789012:detector/abc123def456/finding/finding006",
+      "createdAt": "2024-01-15T03:23:00Z",
+      "description": "91.92.251.103 established a session on EC2 instance i-0a1b2c3d4e5f67890 and executed a shell script fetched from a remote server. The script establishes a Mirai-variant botnet C2 beacon.",
+      "id": "finding006",
+      "region": "us-east-1",
+      "severity": 7.5,
+      "title": "Malware Execution: Botnet C2 beacon script executed",
+      "type": "Trojan:EC2/BlackholeTraffic",
+      "updatedAt": "2024-01-15T03:25:00Z",
+      "service": {
+        "action": {
+          "actionType": "NETWORK_CONNECTION",
+          "networkConnectionAction": {
+            "remoteIpDetails": {
+              "country": {"countryCode": "RO", "countryName": "Romania"},
+              "ipAddressV4": "91.92.251.103",
+              "organization": {"asn": "209588", "asnOrg": "AS209588 Flyservers S.A.", "isp": "Flyservers S.A."}
+            }
+          }
+        },
+        "count": 1,
+        "eventFirstSeen": "2024-01-15T03:22:11Z",
+        "eventLastSeen": "2024-01-15T03:22:16Z"
+      },
+      "resource": {
+        "instanceDetails": {"instanceId": "i-0a1b2c3d4e5f67890", "instanceType": "t2.micro"},
+        "resourceType": "Instance"
+      },
+      "mitre_attack": {
+        "tactic": "Execution",
+        "technique": "T1059.004",
+        "technique_name": "Command and Scripting Interpreter: Unix Shell"
+      }
+    },
+    {
+      "accountId": "123456789012",
+      "arn": "arn:aws:guardduty:us-east-1:123456789012:detector/abc123def456/finding/finding007",
+      "createdAt": "2024-01-15T12:00:00Z",
+      "description": "Multiple EC2 instances in the VPC are performing port scanning activities. The scan originated from a compromised internal IP and targeted 192.168.0.0/16 subnet, likely to move laterally.",
+      "id": "finding007",
+      "region": "us-east-1",
+      "severity": 7.0,
+      "title": "Recon: Port scanning detected from EC2 instance — Possible lateral movement",
+      "type": "Recon:EC2/PortProbeUnprotectedPort",
+      "updatedAt": "2024-01-15T12:05:00Z",
+      "service": {
+        "action": {
+          "actionType": "PORT_PROBE",
+          "portProbeAction": {
+            "blocked": false,
+            "portProbeDetails": [
+              {"localPortDetails": {"port": 3306, "portName": "MySQL"}},
+              {"localPortDetails": {"port": 5432, "portName": "PostgreSQL"}},
+              {"localPortDetails": {"port": 6379, "portName": "Redis"}},
+              {"localPortDetails": {"port": 27017, "portName": "MongoDB"}}
+            ],
+            "remoteIpDetails": {
+              "country": {"countryCode": "US", "countryName": "United States"},
+              "ipAddressV4": "162.142.125.210",
+              "organization": {"asn": "14618", "asnOrg": "AS14618 Shodan.io Scanner", "isp": "Shodan"}
+            }
+          }
+        },
+        "count": 456,
+        "eventFirstSeen": "2024-01-15T10:03:17Z",
+        "eventLastSeen": "2024-01-15T12:03:17Z"
+      },
+      "resource": {
+        "instanceDetails": {"instanceId": "i-0a1b2c3d4e5f67890", "instanceType": "t2.micro"},
+        "resourceType": "Instance"
+      },
+      "mitre_attack": {
+        "tactic": "Discovery",
+        "technique": "T1046",
+        "technique_name": "Network Service Discovery"
+      }
+    }
+  ],
+  "summary": {
+    "total_findings": 7,
+    "critical": 1,
+    "high": 5,
+    "medium": 1,
+    "low": 0,
+    "finding_types": {
+      "UnauthorizedAccess:EC2/SSHBruteForce": 1,
+      "UnauthorizedAccess:EC2/TorIPCaller": 1,
+      "UnauthorizedAccess:EC2/MetadataIMDSv1Used": 1,
+      "Backdoor:EC2/C&CActivity.B": 1,
+      "CryptoCurrency:EC2/BitcoinTool.B": 1,
+      "Trojan:EC2/BlackholeTraffic": 1,
+      "Recon:EC2/PortProbeUnprotectedPort": 1
+    }
+  }
+}

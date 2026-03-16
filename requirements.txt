@@ -1,0 +1,9 @@
+# Core — required for all scripts
+colorama
+tabulate
+requests
+
+# Optional — for AI triage (Stage 4 of pipeline)
+# pip install anthropic
+# Get free API key at: https://console.anthropic.com
+# anthropic
