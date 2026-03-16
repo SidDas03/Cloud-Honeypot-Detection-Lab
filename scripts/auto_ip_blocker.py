@@ -25,10 +25,6 @@ import ipaddress
 from datetime import datetime
 from collections import defaultdict
 
-
-# ─────────────────────────────────────────────
-# ANSI Colors
-# ─────────────────────────────────────────────
 class C:
     RED    = "\033[91m"
     GREEN  = "\033[92m"
@@ -38,10 +34,6 @@ class C:
     BOLD   = "\033[1m"
     RESET  = "\033[0m"
 
-
-# ─────────────────────────────────────────────
-# Whitelist — Never block these IPs
-# ─────────────────────────────────────────────
 WHITELIST = {
     "127.0.0.1",
     "::1",
@@ -72,10 +64,6 @@ def is_whitelisted(ip: str) -> bool:
         return False
     return False
 
-
-# ─────────────────────────────────────────────
-# IP Loader
-# ─────────────────────────────────────────────
 def load_ips_from_file(filepath: str, min_severity: str = "LOW") -> list:
     """Load IPs from attacker_ips.txt with optional severity filter."""
     severity_rank = {"LOW": 0, "MEDIUM": 1, "HIGH": 2, "CRITICAL": 3}
@@ -91,8 +79,6 @@ def load_ips_from_file(filepath: str, min_severity: str = "LOW") -> list:
             line = line.strip()
             if not line or line.startswith("#"):
                 continue
-
-            # Parse format: IP | SEVERITY:HIGH | ATTACKS:... | CONNECTIONS:5 | ...
             parts = line.split("|")
             ip = parts[0].strip()
 
@@ -140,11 +126,7 @@ def extract_ips_from_cowrie(log_file: str) -> list:
         result.append({"ip": ip, "severity": severity})
 
     return result
-
-
-# ─────────────────────────────────────────────
-# Blocking Backends
-# ─────────────────────────────────────────────
+  
 class IPTablesBackend:
     """Block IPs using Linux iptables."""
     CHAIN = "HONEYPOT-BLOCK"
@@ -270,10 +252,6 @@ class ExportBackend:
                 f.write(f"{ip}\n")
         print(f"{C.GREEN}[+] Blocklist saved to {self.output_file} ({len(self.blocked)} IPs){C.RESET}")
 
-
-# ─────────────────────────────────────────────
-# Main Blocker
-# ─────────────────────────────────────────────
 class AutoIPBlocker:
     def __init__(self, backend: str = "dry-run", dry_run: bool = True):
         self.backend_name = backend
@@ -375,10 +353,6 @@ class AutoIPBlocker:
             }, f, indent=2)
         print(f"{C.GREEN}[+] Block report saved to {output_file}{C.RESET}")
 
-
-# ─────────────────────────────────────────────
-# CLI Entry Point
-# ─────────────────────────────────────────────
 def main():
     parser = argparse.ArgumentParser(
         description="Auto IP Blocker for Honeypot Threat Response",
