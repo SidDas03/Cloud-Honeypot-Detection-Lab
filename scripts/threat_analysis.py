@@ -17,10 +17,6 @@ from datetime import datetime
 import hashlib
 import uuid
 
-
-# ─────────────────────────────────────────────
-# ANSI Colors
-# ─────────────────────────────────────────────
 class C:
     RED     = "\033[91m"
     GREEN   = "\033[92m"
@@ -30,10 +26,6 @@ class C:
     BOLD    = "\033[1m"
     RESET   = "\033[0m"
 
-
-# ─────────────────────────────────────────────
-# MITRE ATT&CK Mappings
-# ─────────────────────────────────────────────
 COMMAND_TO_MITRE = {
     "uname":         ("Discovery",          "T1082",     "System Information Discovery"),
     "id":            ("Discovery",          "T1033",     "System Owner/User Discovery"),
@@ -60,10 +52,6 @@ COMMAND_TO_MITRE = {
     "minexmr":       ("Impact",             "T1496",     "Resource Hijacking"),
 }
 
-
-# ─────────────────────────────────────────────
-# ThreatAnalyzer Core
-# ─────────────────────────────────────────────
 class ThreatAnalyzer:
     def __init__(self, cowrie_log: str, guardduty_log: str = None):
         self.cowrie_log = cowrie_log
@@ -305,10 +293,6 @@ class ThreatAnalyzer:
             json.dump(result, f, indent=2)
         print(f"{C.GREEN}[+] Simulated {len(findings)} GuardDuty findings → {output_file}{C.RESET}")
 
-
-# ─────────────────────────────────────────────
-# CLI Entry Point
-# ─────────────────────────────────────────────
 def main():
     parser = argparse.ArgumentParser(description="Honeypot Threat Analysis Engine")
     parser.add_argument("--logs", default="logs/cowrie_logs.json", help="Cowrie log file")
