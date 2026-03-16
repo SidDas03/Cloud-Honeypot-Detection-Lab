@@ -166,7 +166,7 @@ During the simulated 72-hour observation window:
 
 ---
 
-## 👤 Author
+## Author
 
 **Security Research Lab**
 - Built as a portfolio demonstration of cloud threat detection capabilities
