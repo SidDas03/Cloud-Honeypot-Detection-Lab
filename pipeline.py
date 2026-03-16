@@ -31,7 +31,7 @@ import argparse
 import time
 from datetime import datetime
 
-# Make scripts/ importable from project root
+
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from scripts.normalizer      import normalize
@@ -85,7 +85,6 @@ class HoneypotPipeline:
             "errors":            []
         }
 
-    # ── Step 1: Normalize ─────────────────────────────────────────────
     def step_normalize(self):
         banner(1, 5, "Normalizing log sources")
         total = 0
@@ -108,7 +107,6 @@ class HoneypotPipeline:
         self.report["steps_completed"].append("normalize")
         info(f"Total: {total} events normalized")
 
-    # ── Step 2: Extract IPs ───────────────────────────────────────────
     def step_extract_ips(self):
         banner(2, 5, "Extracting and scoring attacker IPs")
 
@@ -137,7 +135,6 @@ class HoneypotPipeline:
                 col = C.RED if sev == "CRITICAL" else (C.YELLOW if sev == "HIGH" else "")
                 info(f"  {col}{sev}: {counts[sev]} IPs{C.RESET}")
 
-    # ── Step 3: Threat Analysis ───────────────────────────────────────
     def step_threat_analysis(self):
         banner(3, 5, "Threat analysis + MITRE ATT&CK mapping")
 
@@ -155,7 +152,6 @@ class HoneypotPipeline:
 
         self.report["steps_completed"].append("threat_analysis")
 
-    # ── Step 4: AI Triage ─────────────────────────────────────────────
     def step_ai_triage(self) -> dict:
         banner(4, 5, "AI triage — classifying sessions with Claude")
 
@@ -184,8 +180,7 @@ class HoneypotPipeline:
         ok(f"{len(triage)} sessions triaged")
         ok(f"{len(high_risk)} above alert threshold (score >= {self.alert_threshold})")
         return triage
-
-    # ── Step 5: Alert + Block ─────────────────────────────────────────
+      
     def step_alert_and_block(self, triage: dict):
         banner(5, 5, "Sending alerts and blocking malicious IPs")
 
@@ -217,7 +212,6 @@ class HoneypotPipeline:
         ok(f"{alerts_sent} alerts sent")
         ok(f"{len(ips_to_block)} IPs {'blocked' if not self.dry_run else 'flagged (dry-run)'}")
 
-    # ── Save report ───────────────────────────────────────────────────
     def save_report(self, path="logs/pipeline_report.json"):
         self.report["finished_at"] = datetime.utcnow().isoformat() + "Z"
         os.makedirs(os.path.dirname(path) if os.path.dirname(path) else ".", exist_ok=True)
@@ -225,7 +219,6 @@ class HoneypotPipeline:
             json.dump(self.report, f, indent=2)
         ok(f"Report saved → {path}")
 
-    # ── Run ───────────────────────────────────────────────────────────
     def run(self):
         print(f"\n{C.BOLD}{'═' * 60}{C.RESET}")
         print(f"{C.BOLD}  🍯 CLOUD HONEYPOT — AUTOMATED THREAT PIPELINE{C.RESET}")
@@ -266,10 +259,6 @@ class HoneypotPipeline:
         print(f"  IPs blocked      : {self.report['ips_blocked']}")
         print(f"{'═' * 60}\n")
 
-
-# ─────────────────────────────────────────────
-# CLI
-# ─────────────────────────────────────────────
 def main():
     parser = argparse.ArgumentParser(
         description="Automated honeypot threat pipeline",
