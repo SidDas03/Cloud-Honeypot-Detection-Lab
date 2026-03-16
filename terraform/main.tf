@@ -20,16 +20,10 @@ terraform {
   }
 }
 
-# ─────────────────────────────────────────────
-# Provider — AWS Region Configuration
-# ─────────────────────────────────────────────
 provider "aws" {
   region = var.aws_region
 }
 
-# ─────────────────────────────────────────────
-# Data Sources
-# ─────────────────────────────────────────────
 
 # Get latest Ubuntu 22.04 AMI automatically
 data "aws_ami" "ubuntu" {
@@ -50,9 +44,6 @@ data "aws_ami" "ubuntu" {
 # Get current AWS account ID
 data "aws_caller_identity" "current" {}
 
-# ─────────────────────────────────────────────
-# VPC — Isolated network for honeypot
-# ─────────────────────────────────────────────
 resource "aws_vpc" "honeypot_vpc" {
   cidr_block           = var.vpc_cidr
   enable_dns_hostnames = true
@@ -88,7 +79,7 @@ resource "aws_subnet" "honeypot_subnet" {
   }
 }
 
-# Route Table — route all traffic through internet gateway
+# Route Table 
 resource "aws_route_table" "honeypot_rt" {
   vpc_id = aws_vpc.honeypot_vpc.id
 
@@ -108,10 +99,6 @@ resource "aws_route_table_association" "honeypot_rta" {
   route_table_id = aws_route_table.honeypot_rt.id
 }
 
-# ─────────────────────────────────────────────
-# Security Group — Honeypot firewall rules
-# Intentionally allows SSH/HTTP to attract attackers
-# ─────────────────────────────────────────────
 resource "aws_security_group" "honeypot_sg" {
   name        = "${var.project_name}-sg"
   description = "Honeypot security group - allows SSH and HTTP for attacker luring"
@@ -167,9 +154,6 @@ resource "aws_security_group" "honeypot_sg" {
   }
 }
 
-# ─────────────────────────────────────────────
-# IAM Role — EC2 instance permissions
-# ─────────────────────────────────────────────
 resource "aws_iam_role" "honeypot_role" {
   name = "${var.project_name}-role"
 
@@ -203,9 +187,6 @@ resource "aws_iam_instance_profile" "honeypot_profile" {
   role = aws_iam_role.honeypot_role.name
 }
 
-# ─────────────────────────────────────────────
-# EC2 Instance — The Honeypot Server
-# ─────────────────────────────────────────────
 resource "aws_instance" "honeypot" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.instance_type
@@ -253,9 +234,6 @@ resource "aws_eip" "honeypot_eip" {
   }
 }
 
-# ─────────────────────────────────────────────
-# GuardDuty — AWS Threat Detection Service
-# ─────────────────────────────────────────────
 resource "aws_guardduty_detector" "honeypot_detector" {
   enable = true
 
@@ -282,9 +260,6 @@ resource "aws_guardduty_detector" "honeypot_detector" {
   }
 }
 
-# ─────────────────────────────────────────────
-# CloudTrail — API call logging
-# ─────────────────────────────────────────────
 resource "aws_s3_bucket" "cloudtrail_bucket" {
   bucket        = "${var.project_name}-cloudtrail-${data.aws_caller_identity.current.account_id}"
   force_destroy = true
@@ -341,9 +316,6 @@ resource "aws_cloudtrail" "honeypot_trail" {
   }
 }
 
-# ─────────────────────────────────────────────
-# SNS Topic — Alert notifications
-# ─────────────────────────────────────────────
 resource "aws_sns_topic" "honeypot_alerts" {
   name = "${var.project_name}-alerts"
 
