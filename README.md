@@ -2,8 +2,6 @@
 
 > A simulated cloud-based honeypot infrastructure for detecting, logging, and analyzing real-world attacker behavior — built to mirror production AWS deployments without requiring live cloud access.
 
-![Architecture](architecture/architecture-diagram.png)
-
 ---
 
 ## 📌 Project Overview
