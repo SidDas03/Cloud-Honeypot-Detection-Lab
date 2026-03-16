@@ -15,9 +15,6 @@ import plotly.graph_objects as go
 from collections import Counter, defaultdict
 from datetime import datetime
 
-# ─────────────────────────────────────────────
-# Page Config
-# ─────────────────────────────────────────────
 st.set_page_config(
     page_title="Honeypot Threat Dashboard",
     page_icon="🍯",
@@ -25,9 +22,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ─────────────────────────────────────────────
-# Custom CSS
-# ─────────────────────────────────────────────
 st.markdown("""
 <style>
     .main { background-color: #0e1117; }
@@ -58,10 +52,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-
-# ─────────────────────────────────────────────
-# Load Data
-# ─────────────────────────────────────────────
 @st.cache_data
 def load_cowrie_logs():
     with open("logs/cowrie_logs.json") as f:
@@ -123,10 +113,6 @@ except FileNotFoundError as e:
     st.error(f"Log file not found: {e}. Make sure you're running from the project root folder.")
     st.stop()
 
-
-# ─────────────────────────────────────────────
-# Sidebar
-# ─────────────────────────────────────────────
 with st.sidebar:
     st.image("https://img.icons8.com/emoji/96/honeypot.png", width=60)
     st.title("🍯 Honeypot Lab")
@@ -147,10 +133,6 @@ with st.sidebar:
     st.caption(f"Events loaded: {len(events)}")
     st.caption(f"Unique IPs: {len(ip_data)}")
 
-
-# ─────────────────────────────────────────────
-# Helper: Severity Color
-# ─────────────────────────────────────────────
 def sev_color(sev):
     return {"CRITICAL": "#ff4444", "HIGH": "#ffaa00",
             "MEDIUM": "#4488ff", "LOW": "#888888"}.get(sev, "#888")
@@ -169,10 +151,6 @@ def get_severity(stats):
         return "MEDIUM"
     return "LOW"
 
-
-# ─────────────────────────────────────────────
-# PAGE: Overview
-# ─────────────────────────────────────────────
 if page == "📊 Overview":
     st.title("📊 Threat Overview")
     st.caption("72-hour observation window — Simulated EC2 Honeypot (us-east-1)")
@@ -274,10 +252,6 @@ if page == "📊 Overview":
         )
         st.plotly_chart(fig3, use_container_width=True)
 
-
-# ─────────────────────────────────────────────
-# PAGE: Attacker IPs
-# ─────────────────────────────────────────────
 elif page == "🌍 Attacker IPs":
     st.title("🌍 Attacker IP Analysis")
     st.divider()
@@ -350,10 +324,6 @@ elif page == "🌍 Attacker IPs":
             for url in stats["downloads"]:
                 st.code(url)
 
-
-# ─────────────────────────────────────────────
-# PAGE: GuardDuty Findings
-# ─────────────────────────────────────────────
 elif page == "🛡️ GuardDuty Findings":
     st.title("🛡️ GuardDuty Findings")
     st.caption("Simulated AWS GuardDuty threat detection findings")
@@ -404,10 +374,6 @@ elif page == "🛡️ GuardDuty Findings":
         </div>
         """, unsafe_allow_html=True)
 
-
-# ─────────────────────────────────────────────
-# PAGE: Session Commands
-# ─────────────────────────────────────────────
 elif page == "💻 Session Commands":
     st.title("💻 Attacker Session Commands")
     st.caption("Commands executed by attackers after successfully logging in")
@@ -446,10 +412,6 @@ elif page == "💻 Session Commands":
                     st.code(f"{icon}  {cmd}", language="bash")
                 st.divider()
 
-
-# ─────────────────────────────────────────────
-# PAGE: MITRE ATT&CK
-# ─────────────────────────────────────────────
 elif page == "🗺️ MITRE ATT&CK":
     st.title("🗺️ MITRE ATT&CK Mapping")
     st.caption("Attacker behaviors mapped to the MITRE ATT&CK Enterprise Framework")
@@ -533,10 +495,6 @@ elif page == "🗺️ MITRE ATT&CK":
     st.divider()
     st.info("💡 Tip: Import `mitre_attack/mitre_mapping.md` ATT&CK Navigator JSON at https://mitre-attack.github.io/attack-navigator/ to see a visual heatmap of all detected techniques.")
 
-
-# ─────────────────────────────────────────────
-# PAGE: Credentials
-# ─────────────────────────────────────────────
 elif page == "🔑 Credentials":
     st.title("🔑 Credential Analysis")
     st.caption("Usernames and passwords attempted by attackers")
